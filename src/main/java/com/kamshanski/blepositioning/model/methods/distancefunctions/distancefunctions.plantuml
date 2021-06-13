@@ -1,0 +1,25 @@
+@startuml
+    namespace model.methods.distancefunctions {
+          interface model.methods.distancefunctions.DistanceFunction {
+              + makeTheSame()
+              + of()
+          }
+        }
+
+
+  namespace model.methods.distancefunctions {
+
+          class model.methods.distancefunctions.Exponent {
+              + alpha : double
+              + b : double
+              + beta : double
+              + k : double
+              + Exponent()
+              + makeTheSame()
+              + of()
+          }
+        }
+  
+
+  model.methods.distancefunctions.Exponent .up.|> model.methods.distancefunctions.DistanceFunction
+@endtuml

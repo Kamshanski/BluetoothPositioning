@@ -1,0 +1,73 @@
+@startuml
+class com.kamshanski.blepositioning.appcontrol.RssiPlotViewModel {
+~ double[] x
+~ HashMap<String,double[]> ys
+~ ArrayList<Integer> delimiters
+~ int N
+~ String UPPER_LIMIT_SERIES_NAME
+~ String LOWER_LIMIT_SERIES_NAME
++ void plotRssiPacks(HashMap<String,HashMap<Beacon,double[]>>)
++ void putNewData(PlotPack)
+}
+class com.kamshanski.blepositioning.appcontrol.PositionAreaPlotViewModel {
+~ SquareDimension plotConstraints
+~ SquareDimension fieldConstraints
+~ HashMap<String,Pair<double[],double[]>> ys
++ {static} int TARGET_RADIUS
++ void setNewPosition(HashMap<String,Dimensions>)
++ Styler getStyler()
+}
+class com.kamshanski.blepositioning.appcontrol.PositionTrendPlotViewModel {
++ int N
+~ HashMap<String,SlidingWindowDoubleArray> xs
+~ HashMap<String,SlidingWindowDoubleArray> ys
++ {static} int TARGET_RADIUS
++ void setNewPosition(HashMap<String,Dimensions>)
+}
+abstract class com.kamshanski.blepositioning.appcontrol.PlotViewModelAbstract {
+# XYChart graph
++ Notifier plotUpdateNotifier
+# LiveData<Model> model
++ XYChart getGraph()
++ Styler getStyler()
+}
+class com.kamshanski.blepositioning.appcontrol.PlotPack {
+~ HashMap<String,double[]> pack
+~ int max
++ void add(String,double[])
++ HashMap<String,double[]> getPack()
++ int getMax()
+}
+class com.kamshanski.blepositioning.appcontrol.ViewModel {
++ LiveData<Boolean> experimentInOn
++ LiveData<String> expName
++ LiveData<String> comPortNum
++ LiveData<Boolean> isConnected
++ LiveData<Integer> targetCount
++ LiveData<Integer> slaveCount
++ LiveData<String> targetsListString
++ DataPropagator<String> experimentResultsMessage
++ DataPropagator<String> printMessage
++ DataPropagator<String> programLogMessage
+- LiveData<Model> model
+- ComReader comReader
+~ ComPortListener comPortListener
+- {static} ViewModel instance
++ void openConnection()
++ void record()
++ void remove()
++ void displayExperimentsResults()
+- void printNewPosition(HashMap<String,Dimensions>)
+- void printToPositionLog(String)
+- void printToExperimentsResultsLabel(String)
+- void printToProgramLog(String)
+- void printException(Exception)
+- void println(String)
++ {static} ViewModel getInstance()
+}
+
+
+com.kamshanski.blepositioning.appcontrol.PlotViewModelAbstract <|-- com.kamshanski.blepositioning.appcontrol.RssiPlotViewModel
+com.kamshanski.blepositioning.appcontrol.PlotViewModelAbstract <|-- com.kamshanski.blepositioning.appcontrol.PositionAreaPlotViewModel
+com.kamshanski.blepositioning.appcontrol.PlotViewModelAbstract <|-- com.kamshanski.blepositioning.appcontrol.PositionTrendPlotViewModel
+@enduml

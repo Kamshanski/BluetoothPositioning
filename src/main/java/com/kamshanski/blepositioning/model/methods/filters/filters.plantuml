@@ -1,0 +1,277 @@
+@startuml
+
+title __FILTERS's Class Diagram__\n
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          interface com.kamshanski.blepositioning.model.methods.filters.Filter {
+              {abstract} + calculate()
+              {abstract} + put()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.FilterBunch {
+              ~ filters : NiceFilter[]
+              + FilterBunch()
+              + filter()
+              + makeTheSame()
+              + size()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.Hampel {
+              ~ k : double
+              ~ n : double
+              ~ windowDoubleArray : SlidingWindowDoubleArray
+              ~ windowSize : int
+              + Hampel()
+              + Hampel()
+              + Hampel()
+              + Hampel()
+              + filter()
+              + makeTheSame()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.Kalman {
+              ~ K : double
+              ~ P : double
+              ~ Q : double
+              ~ R : double
+              ~ Z : Double
+              + Kalman()
+              + Kalman()
+              + calc()
+              + filter()
+              + makeTheSame()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage {
+              ~ ER : double
+              ~ F : double
+              ~ F_S : double
+              ~ S : double
+              ~ Z : double
+              ~ alpha : double
+              ~ direction : double
+              ~ f : int
+              ~ initValue : int
+              ~ s : int
+              ~ size : int
+              ~ v : Double
+              ~ volatility : double
+              ~ windows : SlidingWindowDoubleArray
+              + KaufmansAdaptiveMovingAverage()
+              + KaufmansAdaptiveMovingAverage()
+              + KaufmansAdaptiveMovingAverage()
+              + filter()
+              + makeTheSame()
+              ~ getVolatility()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray {
+              ~ maxSize : int
+              ~ size : int
+              ~ sum : double
+              + LinkedDoubleArray()
+              + addFirst()
+              + first()
+              + forEach()
+              + getSum()
+              + last()
+              + toString()
+              - addFirstNew()
+              - forEach()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          interface com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleConsumer {
+              {abstract} + apply()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode {
+              ~ val : double
+              + DoubleNode()
+              + toString()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          interface com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNodeConsumer {
+              {abstract} + apply()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.MeanFilter {
+              ~ mean : double
+              ~ sameSize : boolean
+              ~ variance : double
+              + MeanFilter()
+              + filter()
+              + getMean()
+              + getVariance()
+              + makeTheSame()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.Median {
+              ~ n : int
+              ~ windowDoubleArray : SlidingWindowDoubleArray
+              + Median()
+              + filter()
+              + makeTheSame()
+              {static} + median()
+              {static} + median()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          interface com.kamshanski.blepositioning.model.methods.filters.NiceFilter {
+              {abstract} + filter()
+              {abstract} + makeTheSame()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace filters {
+          class com.kamshanski.blepositioning.model.methods.filters.SavitzkyGolay {
+              {static} + CUBIC : int
+              {static} + QUADRATIC : int
+              ~ A_T_0 : double[]
+              ~ L : int
+              ~ M : int
+              ~ N : int
+              ~ degree : int
+              ~ windowIntArray : SlidingWindowDoubleArray
+              + SavitzkyGolay()
+              + calculate()
+              + put()
+          }
+        }
+      }
+    }
+  }
+  
+
+  com.kamshanski.blepositioning.model.methods.filters.FilterBunch .up.|> com.kamshanski.blepositioning.model.methods.filters.NiceFilter
+  com.kamshanski.blepositioning.model.methods.filters.Hampel .up.|> com.kamshanski.blepositioning.model.methods.filters.NiceFilter
+  com.kamshanski.blepositioning.model.methods.filters.Kalman .up.|> com.kamshanski.blepositioning.model.methods.filters.NiceFilter
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage .up.|> com.kamshanski.blepositioning.model.methods.filters.NiceFilter
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage +-down- com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray o-- com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode : first
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray o-- com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode : last
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray +-down- com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleConsumer
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray +-down- com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray +-down- com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNodeConsumer
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode o-- com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode : next
+  com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode o-- com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode : prev
+  com.kamshanski.blepositioning.model.methods.filters.MeanFilter .up.|> com.kamshanski.blepositioning.model.methods.filters.NiceFilter
+  com.kamshanski.blepositioning.model.methods.filters.Median .up.|> com.kamshanski.blepositioning.model.methods.filters.NiceFilter
+  com.kamshanski.blepositioning.model.methods.filters.SavitzkyGolay .up.|> com.kamshanski.blepositioning.model.methods.filters.Filter
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

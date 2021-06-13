@@ -1,0 +1,17 @@
+@startuml
+class com.kamshanski.blepositioning.model.core.MacAddress {
++ {static} HashMap<String,MacAddress> macs
++ String macString
+~ byte[] toByteArray()
++ boolean equals(Object)
++ int hashCode()
++ {static} MacAddress getMac(String)
+}
+class com.kamshanski.blepositioning.model.core.Dimensions {
++ double x
++ double fv
++ void set(double,double,double)
++ void set(double,double)
++ String toString()
+}
+@enduml

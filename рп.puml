@@ -1,0 +1,456 @@
+@startuml
+class com.kamshanski.blepositioning.model.methods.filters.FilterBunch {
+~ NiceFilter[] filters
++ double[] filter(double[])
++ NiceFilter makeTheSame()
++ int size()
+}
+abstract class com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator {
+~ double[] input
++ Dimensions estimate(HashMap<Beacon,Double>)
++ String toString()
+~ {abstract}double computeX(double[])
+~ {abstract}double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrMedianKalman {
+~ double computeX(double[])
+~ double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw {
+~ double computeX(double[])
+~ double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw.ModelX {
++ {static} double computetX(double[])
++ {static} double subroutine0(double[])
++ {static} double subroutine1(double[])
++ {static} double subroutine2(double[])
++ {static} double subroutine3(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw.ModelY {
++ {static} double computeY(double[])
++ {static} double subroutine0(double[])
++ {static} double subroutine1(double[])
++ {static} double subroutine2(double[])
++ {static} double subroutine3(double[])
+}
+interface com.kamshanski.blepositioning.model.methods.filters.NiceFilter {
+~ double[] filter(double[])
+~ NiceFilter makeTheSame()
+}
+class com.kamshanski.blepositioning.model.methods.filters.MeanFilter {
+~ double mean
+~ boolean sameSize
++ double[] filter(double[])
++ NiceFilter makeTheSame()
++ double getMean()
++ double getVariance()
+}
+class com.kamshanski.blepositioning.model.storage.ComplexStorage {
+- Beacon beacon
+- MacAddress mac
+- String tag
+~ ArrayList<double[]> storages
+~ ArrayListDouble holder
+- FilterBunch filter
+~ int fullSize
+~ double sum
++ void completeRecording(boolean)
++ void putItem(double)
++ double[] get(int)
++ int size()
++ int fullSize()
++ double getMean()
++ double[] getFullSizeAndMean()
++ boolean metaEquals(int,MacAddress)
++ void clear()
++ String name()
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrRaw {
+~ double computeX(double[])
+~ double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman {
+~ double computeX(double[])
+~ double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman.ModelX {
++ {static} double computetX(double[])
++ {static} double subroutine0(double[])
++ {static} double subroutine1(double[])
++ {static} double subroutine2(double[])
++ {static} double subroutine3(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman.ModelY {
++ {static} double computeY(double[])
++ {static} double subroutine0(double[])
++ {static} double subroutine1(double[])
++ {static} double subroutine2(double[])
++ {static} double subroutine3(double[])
+}
+interface com.kamshanski.blepositioning.model.methods.filters.Filter {
+~ void put(int)
+~ T calculate()
+}
+class com.kamshanski.blepositioning.model.methods.filters.SavitzkyGolay {
++ {static} int QUADRATIC
++ {static} int CUBIC
+~ int N
+~ SlidingWindowDoubleArray windowIntArray
+~ double[] A_T_0
++ void put(int)
++ Double calculate()
+}
+interface com.kamshanski.blepositioning.model.methods.solvers.Estimator {
+~ Dimensions estimate(HashMap<Beacon,Double>)
+}
+class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam {
+~ double xMax
+~ int maxIterations
+~ int xPointsNum
+~ LeastSquaresFunction f
+~ double globalBestX
+~ double xBestTemp
+~ int globalBestId
+~ int step
+~ Point[] points
+~ Random uniformRandom
++ void clear(LeastSquaresFunction)
++ void fitClearPoints()
++ boolean hasNext()
++ Answer next()
++ Answer calculateFull(Consumer<Answer>)
+}
+class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam.Answer {
+~ double x
++ long time
++ int step
++ long getTime()
++ double getX()
++ double getY()
++ double[] getCoordinates()
++ double getFunctionValue()
++ String toString()
+}
+class com.kamshanski.blepositioning.model.methods.solvers.localization.WCL {
+~ double a
++ Dimensions estimate(HashMap<Beacon,Double>)
+}
+class com.kamshanski.blepositioning.model.storage.PositioningStorage {
+- MacAddress target
+- LinkedList<Dimensions> storage
+- Dimensions lastPack
++ void put(Dimensions)
++ Dimensions getLast()
++ Dimensions get(int)
+}
+class com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage {
+~ int size
+~ double F
+~ double ER
+~ SlidingWindowDoubleArray windows
+~ Mutable.Double v
++ double[] filter(double[])
+~ double getVolatility()
++ NiceFilter makeTheSame()
+}
+class com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray {
+- DoubleNode first
+~ int maxSize
+~ int size
+~ double sum
+- void addFirstNew(double)
++ void addFirst(double)
++ void forEach(DoubleConsumer)
+- void forEach(DoubleNodeConsumer)
++ double first()
++ double last()
++ double getSum()
++ String toString()
+}
+class com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode {
+~ DoubleNode next
+~ double val
++ String toString()
+}
+interface com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleConsumer {
+~ void apply(double)
+}
+interface com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNodeConsumer {
+~ void apply(DoubleNode)
+}
+class com.kamshanski.blepositioning.model.methods.filters.Median {
+~ SlidingWindowDoubleArray windowDoubleArray
+~ int n
++ double[] filter(double[])
++ NiceFilter makeTheSame()
++ {static} double median(int[])
++ {static} double median(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrMedian {
+~ double computeX(double[])
+~ double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman {
+~ double computeX(double[])
+~ double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman.ModelX {
++ {static} double computetX(double[])
++ {static} double subroutine0(double[])
++ {static} double subroutine1(double[])
++ {static} double subroutine2(double[])
++ {static} double subroutine3(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman.ModelY {
++ {static} double computeY(double[])
++ {static} double subroutine0(double[])
++ {static} double subroutine1(double[])
++ {static} double subroutine2(double[])
++ {static} double subroutine3(double[])
+}
+class com.kamshanski.blepositioning.model.Model {
++ LiveData<HashMap<String,HashMap<Beacon,double[]>>> latestRssiMeasuring
++ LiveData<HashMap<String,Dimensions>> latestPosition
++ LiveData<Integer> processingFinished
++ boolean expIsOn
++ LiveData<Integer> slavesNum
++ LiveData<Integer> targetsNum
+- int targetsCapacity
++ LiveData<MacAddress[]> targetsMacs
++ ArrayList<NiceStorage> rssiStorages
++ ArrayList<ComplexStorage> experimentalStorages
+- Map<String,Positioning> positionings
+- {static} LiveData<Model> instance
++ void putNewMeasurements(long,long,String)
++ boolean setSlavesNum(int)
++ boolean setTargets(String,String,String)
++ void parseTargetsMacs(String)
++ String getTargetsString()
++ String getTargetsSetString()
++ List<ComplexStorage> getExpStorages()
++ {static} LiveData<Model> getClearInstance(boolean)
+}
+class com.kamshanski.blepositioning.model.methods.filters.Hampel {
+~ SlidingWindowDoubleArray windowDoubleArray
+~ double n
+~ double k
+~ int windowSize
++ double[] filter(double[])
++ NiceFilter makeTheSame()
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrKalman {
+~ double computeX(double[])
+~ double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian {
+~ double computeX(double[])
+~ double computeY(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian.ModelX {
++ {static} double computetX(double[])
++ {static} double subroutine0(double[])
++ {static} double subroutine1(double[])
++ {static} double subroutine2(double[])
++ {static} double subroutine3(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian.ModelY {
++ {static} double computeY(double[])
++ {static} double subroutine0(double[])
++ {static} double subroutine1(double[])
++ {static} double subroutine2(double[])
++ {static} double subroutine3(double[])
+}
+class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction {
++ {static} String X
++ {static} String Y
+- Expression exception
++ double of(double,double)
+}
+class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction.Builder {
++ {static} String CANVAS
++ {static} String PLUS
++ StringBuilder parts
++ Builder addPart(double,double,double)
++ LeastSquaresFunction build()
++ {static} LeastSquaresFunction getZero()
+}
+class com.kamshanski.blepositioning.model.methods.distancefunctions.Exponent {
++ double k
++ double of(double)
++ DistanceFunction makeTheSame(Beacon)
+}
+class com.kamshanski.blepositioning.model.methods.filters.Kalman {
+~ double Q
+~ double R
+~ double K
+~ Mutable.Double Z
++ double calc(double)
++ double[] filter(double[])
++ NiceFilter makeTheSame()
+}
+class com.kamshanski.blepositioning.model.core.MacAddress {
++ {static} HashMap<String,MacAddress> macs
++ String macString
+~ byte[] toByteArray()
++ boolean equals(Object)
++ int hashCode()
++ {static} MacAddress getMac(String)
+}
+class com.kamshanski.blepositioning.model.methods.solvers.localization.RSWL {
+~ double lambda
+~ double RSSI_max
++ Dimensions estimate(HashMap<Beacon,Double>)
+}
+class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwamBuilder {
+- double xMax
+- double xMin
+- double yMax
+- double yMin
+- int maxIterations
+- int xPointsNum
+- int yPointsNum
+- LeastSquaresFunction f
++ ParticleSwamBuilder setxMax(double)
++ ParticleSwamBuilder setxMin(double)
++ ParticleSwamBuilder setyMax(double)
++ ParticleSwamBuilder setyMin(double)
++ ParticleSwamBuilder setMaxIterations(int)
++ ParticleSwamBuilder setxPointsNum(int)
++ ParticleSwamBuilder setyPointsNum(int)
++ ParticleSwam build()
+}
+class com.kamshanski.blepositioning.model.excel.Excel {
+~ Workbook wb
+~ Sheet sheet
+~ int emptyRows
+~ int colsNum
+~ HashMap<String,Integer> columns
++ int putData(String,Object,int)
++ void putData(NiceStorage)
++ String save(String)
+- void fillData()
+- Path constructPath(String)
+- void saveTo(Path)
++ Row row(int)
+}
+class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.Point {
+~ double x
+~ double xVel
+~ double xBestLocal
+~ double functionValue
+~ double Cin
+~ double Ccog
+~ double Csoc
++ double[] updatePosition(double,double)
++ void setFunctionValue(double)
++ void setPosition(double,double)
++ double getX()
++ double getY()
++ double getFv()
+}
+class com.kamshanski.blepositioning.model.methods.mean.Mean {
+~ double mean
++ double calculate(double[])
++ double getLastMean()
++ {static} double mean(double[])
++ Mean makeTheSame()
+}
+class com.kamshanski.blepositioning.model.methods.distancefunctions.PivotExponent {
+~ double pivotDistance
++ double of(double)
++ DistanceFunction makeTheSame(Beacon)
+}
+class com.kamshanski.blepositioning.model.methods.Positioning {
+~ NiceFilter rssiFiltersBunchSample
+~ HashMap<Beacon,NiceFilter> rssiFilters
+~ HashMap<Beacon,MeanVariance> meanFunctions
+~ HashMap<Beacon,DistanceFunction> distanceFunctions
+~ Estimator coordinatesEstimator
+~ FilterBunch xFilter
+~ boolean meanFirst
+~ PositioningStorage storage
++ Dimensions of(HashMap<Beacon,double[]>)
+}
+abstract class com.kamshanski.blepositioning.model.methods.distancefunctions.DistanceFunction {
++ {abstract}double of(double)
++ {abstract}DistanceFunction makeTheSame(Beacon)
+}
+class com.kamshanski.blepositioning.model.storage.Measurement {
+- HashMap<Beacon,LinkedList<Double>> tempArray
+- HashMap<Beacon,double[]> rssis
+- Dimensions dimensions
++ void put(Beacon,double)
++ void complete()
++ void setDimensions(Dimensions)
++ HashMap<Beacon,double[]> get()
++ Dimensions getDimensions()
+}
+class com.kamshanski.blepositioning.model.core.Dimensions {
++ double x
++ double fv
++ void set(double,double,double)
++ void set(double,double)
++ String toString()
+}
+class com.kamshanski.blepositioning.model.methods.mean.MeanVariance {
+~ double variance
++ double calculate(double[])
++ {static} double variance(double[])
++ {static} double variance(double[],double)
+}
+class com.kamshanski.blepositioning.model.storage.NiceStorage {
++ String name
++ LinkedHashMap<Beacon,LinkedList<double[]>> storage
++ HashMap<Beacon,double[]> lastPack
++ int maxLength
++ HashMap<Integer,FilterBunch> filters
++ FilterBunch filterSample
++ void add(int,double[])
++ HashMap<Beacon,double[]> getLastPacks()
+- void offerNewMaxLength(int)
++ void compute(BiConsumer<Integer,LinkedHashMap<Beacon,LinkedList<double[]>>>)
+}
+class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwamEstimator {
+~ ParticleSwam swam
++ Dimensions estimate(HashMap<Beacon,Double>)
+}
+
+
+com.kamshanski.blepositioning.model.methods.filters.NiceFilter <|.. com.kamshanski.blepositioning.model.methods.filters.FilterBunch
+com.kamshanski.blepositioning.model.methods.solvers.Estimator <|.. com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator <|-- com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrMedianKalman
+com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator <|-- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw
+com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw +.. com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw.ModelX
+com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw +.. com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw.ModelY
+com.kamshanski.blepositioning.model.methods.filters.NiceFilter <|.. com.kamshanski.blepositioning.model.methods.filters.MeanFilter
+com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator <|-- com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrRaw
+com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator <|-- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman
+com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman +.. com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman.ModelX
+com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman +.. com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman.ModelY
+com.kamshanski.blepositioning.model.methods.filters.Filter <|.. com.kamshanski.blepositioning.model.methods.filters.SavitzkyGolay
+com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam +.. com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam.Answer
+com.kamshanski.blepositioning.model.methods.solvers.Estimator <|.. com.kamshanski.blepositioning.model.methods.solvers.localization.WCL
+com.kamshanski.blepositioning.model.methods.filters.NiceFilter <|.. com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage
+com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage +.. com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray
+com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray +.. com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNode
+com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray +.. com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleConsumer
+com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray +.. com.kamshanski.blepositioning.model.methods.filters.KaufmansAdaptiveMovingAverage.LinkedDoubleArray.DoubleNodeConsumer
+com.kamshanski.blepositioning.model.methods.filters.NiceFilter <|.. com.kamshanski.blepositioning.model.methods.filters.Median
+com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator <|-- com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrMedian
+com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator <|-- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman
+com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman +.. com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman.ModelX
+com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman +.. com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman.ModelY
+com.kamshanski.blepositioning.model.methods.filters.NiceFilter <|.. com.kamshanski.blepositioning.model.methods.filters.Hampel
+com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator <|-- com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrKalman
+com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator <|-- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian
+com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian +.. com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian.ModelX
+com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian +.. com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian.ModelY
+com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction +.. com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction.Builder
+com.kamshanski.blepositioning.model.methods.distancefunctions.DistanceFunction <|-- com.kamshanski.blepositioning.model.methods.distancefunctions.Exponent
+com.kamshanski.blepositioning.model.methods.filters.NiceFilter <|.. com.kamshanski.blepositioning.model.methods.filters.Kalman
+com.kamshanski.blepositioning.model.methods.solvers.Estimator <|.. com.kamshanski.blepositioning.model.methods.solvers.localization.RSWL
+com.kamshanski.blepositioning.model.methods.distancefunctions.DistanceFunction <|-- com.kamshanski.blepositioning.model.methods.distancefunctions.PivotExponent
+com.kamshanski.blepositioning.model.methods.mean.Mean <|-- com.kamshanski.blepositioning.model.methods.mean.MeanVariance
+com.kamshanski.blepositioning.model.methods.solvers.Estimator <|.. com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwamEstimator
+@enduml

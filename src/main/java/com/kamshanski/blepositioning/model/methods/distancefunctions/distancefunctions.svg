@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="346px" preserveAspectRatio="none" style="width:287px;height:346px;" version="1.1" viewBox="0 0 287 346" width="287px" zoomAndPan="magnify"><defs><filter height="300%" id="f1gx02qs0wezyp" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[69e365418c35c5b48c8ea6ae4c0afe0e]
+cluster model.methods.distancefunctions--><polygon fill="#FFFFFF" filter="url(#f1gx02qs0wezyp)" points="16,6,260,6,267,29.6094,270,29.6094,270,339,16,339,16,6" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="267" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="238" x="20" y="22.5332">model.methods.distancefunctions</text><!--MD5=[a07d578bb64ee710a3f157961a8d9dfb]
+class model.methods.distancefunctions.DistanceFunction--><rect codeLine="2" fill="#FEFECE" filter="url(#f1gx02qs0wezyp)" height="75.6719" id="model.methods.distancefunctions.DistanceFunction" style="stroke:#A80036;stroke-width:1.5;" width="127" x="79.5" y="42"/><ellipse cx="94.5" cy="58" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M95.5,55 L95.5,61 L97.5,61 L97.9844,61 L98.5,61.625 L98.5,62 L98.5,62.375 L97.9844,63 L97.5,63 L91.5,63 L91.0156,63 L90.5,62.375 L90.5,62 L90.5,61.625 L91.0156,61 L91.5,61 L93.5,61 L93.5,55 L91.5,55 L91.0156,55 L90.5,54.375 L90.5,54 L90.5,53.625 L91.0156,53 L91.5,53 L97.5,53 L97.9844,53 L98.5,53.625 L98.5,54 L98.5,54.375 L97.9844,55 L97.5,55 L95.5,55 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="95" x="108.5" y="62.9102">DistanceFunction</text><line style="stroke:#A80036;stroke-width:1.5;" x1="80.5" x2="205.5" y1="74" y2="74"/><line style="stroke:#A80036;stroke-width:1.5;" x1="80.5" x2="205.5" y1="82" y2="82"/><ellipse cx="90.5" cy="93" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="99.5" y="97.4189">makeTheSame()</text><ellipse cx="90.5" cy="106.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="18" x="99.5" y="111.2549">of()</text><!--MD5=[958f01574c2b5520b7adb871c2626bd9]
+class model.methods.distancefunctions.Exponent--><rect codeLine="11" fill="#FEFECE" filter="url(#f1gx02qs0wezyp)" height="144.8516" id="model.methods.distancefunctions.Exponent" style="stroke:#A80036;stroke-width:1.5;" width="104" x="91" y="178"/><ellipse cx="115.45" cy="194" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M117.45,190.5 Q117.6531,190 117.8875,189.75 Q118.1219,189.5 118.3875,189.5 Q118.8563,189.5 119.1531,189.7813 Q119.45,190.0625 119.45,190.7188 L119.45,192.2813 Q119.45,192.9375 119.1688,193.2188 Q118.8875,193.5 118.45,193.5 Q118.0594,193.5 117.8094,193.3281 Q117.5594,193.1563 117.45,192.7031 Q117.4031,192.3906 117.2313,192.2188 Q116.9188,191.8906 116.3563,191.7031 Q115.7938,191.5 115.2313,191.5 Q114.5281,191.5 113.9344,191.7813 Q113.3563,192.0625 112.9031,192.6875 Q112.45,193.3125 112.45,194.1719 L112.45,195.0938 Q112.45,196.125 113.2938,196.8125 Q114.1375,197.5 115.6375,197.5 Q116.5281,197.5 117.1531,197.2969 Q117.5125,197.1875 117.9188,196.8281 Q118.1844,196.625 118.325,196.5625 Q118.4656,196.5 118.6375,196.5 Q118.9656,196.5 119.2,196.7656 Q119.45,197.0156 119.45,197.375 Q119.45,197.7188 119.1063,198.125 Q118.6063,198.7188 117.8094,199.0469 Q116.7625,199.5 115.4813,199.5 Q113.9813,199.5 112.7781,198.9063 Q111.8094,198.4375 111.1219,197.4219 Q110.45,196.4063 110.45,195.2031 L110.45,194.1094 Q110.45,192.8594 111.0438,191.7656 Q111.6531,190.6719 112.7,190.0938 Q113.7625,189.5 114.95,189.5 Q115.6688,189.5 116.2938,189.75 Q116.9188,190 117.45,190.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="51" x="131.55" y="198.9102">Exponent</text><line style="stroke:#A80036;stroke-width:1.5;" x1="92" x2="194" y1="210" y2="210"/><ellipse cx="102" cy="221" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="111" y="225.4189">alpha : double</text><ellipse cx="102" cy="234.8359" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="47" x="111" y="239.2549">b : double</text><ellipse cx="102" cy="248.6719" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="62" x="111" y="253.0908">beta : double</text><ellipse cx="102" cy="262.5078" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="46" x="111" y="266.9268">k : double</text><line style="stroke:#A80036;stroke-width:1.5;" x1="92" x2="194" y1="273.3438" y2="273.3438"/><ellipse cx="102" cy="284.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="53" x="111" y="288.7627">Exponent()</text><ellipse cx="102" cy="298.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="111" y="302.5986">makeTheSame()</text><ellipse cx="102" cy="312.0156" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="18" x="111" y="316.4346">of()</text><!--MD5=[ca49b2b34ff321667169e2bd337d2bfc]
+reverse link model.methods.distancefunctions.DistanceFunction to model.methods.distancefunctions.Exponent--><path codeLine="23" d="M143,138.62 C143,151.28 143,164.84 143,177.97 " fill="none" id="model.methods.distancefunctions.DistanceFunction-backto-model.methods.distancefunctions.Exponent" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="136,138.4,143,118.4,150,138.4,136,138.4" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[2e71c21fa6d1bd991e389def5c6b9158]
+@startuml
+    namespace model.methods.distancefunctions {
+          interface model.methods.distancefunctions.DistanceFunction {
+              + makeTheSame()
+              + of()
+          }
+        }
+
+
+  namespace model.methods.distancefunctions {
+
+          class model.methods.distancefunctions.Exponent {
+              + alpha : double
+              + b : double
+              + beta : double
+              + k : double
+              + Exponent()
+              + makeTheSame()
+              + of()
+          }
+        }
+  
+
+  model.methods.distancefunctions.Exponent .up.|> model.methods.distancefunctions.DistanceFunction
+@endtuml
+
+PlantUML version 1.2021.2(Sun Mar 07 18:10:27 GMT+07:00 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

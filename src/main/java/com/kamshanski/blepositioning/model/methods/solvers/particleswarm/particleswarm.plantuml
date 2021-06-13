@@ -1,0 +1,198 @@
+@startuml
+
+title __PARTICLESWARM's Class Diagram__\n
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace particleswarm {
+            class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction {
+                {static} + X : String
+                {static} + Y : String
+                - exception : Expression
+                + of()
+                - LeastSquaresFunction()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace particleswarm {
+            class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction.Builder {
+                {static} + CANVAS : String
+                {static} + PLUS : String
+                + parts : StringBuilder
+                + addPart()
+                + build()
+                {static} + getZero()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace particleswarm {
+            class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam {
+                ~ fBestTemp : double
+                ~ globalBestFunctionValue : double
+                ~ globalBestId : int
+                ~ globalBestX : double
+                ~ globalBestY : double
+                ~ idBestTemp : int
+                ~ maxIterations : int
+                ~ points : Point[]
+                ~ step : int
+                ~ uniformRandom : Random
+                ~ xBestTemp : double
+                ~ xMax : double
+                ~ xMin : double
+                ~ xPointsNum : int
+                ~ yBestTemp : double
+                ~ yMax : double
+                ~ yMin : double
+                ~ yPointsNum : int
+                + ParticleSwam()
+                + calculateFull()
+                + clear()
+                + fitClearPoints()
+                + hasNext()
+                + next()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace particleswarm {
+            class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam.Answer {
+                + globalBestParticleId : int
+                + step : int
+                ~ f : double
+                ~ x : double
+                ~ y : double
+                + Answer()
+                + getX()
+                + getY()
+                + toString()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace particleswarm {
+            class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwamBuilder {
+                - maxIterations : int
+                - xMax : double
+                - xMin : double
+                - xPointsNum : int
+                - yMax : double
+                - yMin : double
+                - yPointsNum : int
+                + ParticleSwamBuilder()
+                + build()
+                + setMaxIterations()
+                + setxMax()
+                + setxMin()
+                + setxPointsNum()
+                + setyMax()
+                + setyMin()
+                + setyPointsNum()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace particleswarm {
+            class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwamEstimator {
+                + ParticleSwamEstimator()
+                + estimate()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace particleswarm {
+            class com.kamshanski.blepositioning.model.methods.solvers.particleswarm.Point {
+                ~ Ccog : double
+                ~ Cin : double
+                ~ Csoc : double
+                ~ fBestLocal : double
+                ~ functionValue : double
+                ~ x : double
+                ~ xBestLocal : double
+                ~ xVel : double
+                ~ y : double
+                ~ yBestLocal : double
+                ~ yVel : double
+                + Point()
+                + getFv()
+                + getX()
+                + getY()
+                + setFunctionValue()
+                + setPosition()
+                + updatePosition()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction +-down- com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction.Builder
+  com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam o-- com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction : f
+  com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam +-down- com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam.Answer
+  com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwamBuilder o-- com.kamshanski.blepositioning.model.methods.solvers.particleswarm.LeastSquaresFunction : f
+  com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwamEstimator .up.|> com.kamshanski.blepositioning.model.methods.solvers.Estimator
+  com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwamEstimator o-- com.kamshanski.blepositioning.model.methods.solvers.particleswarm.ParticleSwam : swam
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

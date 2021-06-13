@@ -1,0 +1,47 @@
+@startuml
+
+class model.methods.filters.Kalman {
+~ double Q
+~ double R
+~ double K
+~ Mutable.Double Z
++ double calc(double)
++ double[] filter(double[])
++ NiceFilter makeTheSame()
+}
+class model.methods.filters.FilterBunch {
+~ NiceFilter[] filters
++ double[] filter(double[])
++ NiceFilter makeTheSame()
++ int size()
+}
+class model.methods.filters.KaufmansAdaptiveMovingAverage {
+~ int size
+~ double F
+~ double ER
+~ SlidingWindowDoubleArray windows
+~ Mutable.Double v
++ double[] filter(double[])
+~ double getVolatility()
++ NiceFilter makeTheSame()
+}
+
+
+class model.methods.filters.Median {
+~ SlidingWindowDoubleArray windowDoubleArray
+~ int n
++ double[] filter(double[])
++ NiceFilter makeTheSame()
++ {static} double median(int[])
++ {static} double median(double[])
+}
+interface model.methods.filters.NiceFilter {
+~ double[] filter(double[])
+~ NiceFilter makeTheSame()
+}
+
+model.methods.filters.NiceFilter <|.. model.methods.filters.Kalman
+model.methods.filters.NiceFilter <|.. model.methods.filters.FilterBunch
+model.methods.filters.NiceFilter <|.. model.methods.filters.KaufmansAdaptiveMovingAverage
+model.methods.filters.NiceFilter <|.. model.methods.filters.Median
+@enduml

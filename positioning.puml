@@ -1,0 +1,17 @@
+@startuml
+
+class com.kamshanski.blepositioning.model.methods.Positioning {
+~ NiceFilter rssiFiltersBunchSample
+~ HashMap<Beacon,NiceFilter> rssiFilters
+~ HashMap<Beacon,MeanVariance> meanFunctions
+~ HashMap<Beacon,DistanceFunction> distanceFunctions
+~ Estimator coordinatesEstimator
+~ FilterBunch xFilter
+~ boolean meanFirst
++ PositioningStorage storage
+- StringBuilder log
++ Dimensions of(HashMap<Beacon,double[]>)
++ String getLog()
+}
+
+@enduml

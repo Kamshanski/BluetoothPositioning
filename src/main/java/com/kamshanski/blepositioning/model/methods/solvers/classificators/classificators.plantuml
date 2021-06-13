@@ -1,0 +1,330 @@
+@startuml
+
+title __CLASSIFICATORS's Class Diagram__\n
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            abstract class com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator {
+                ~ input : double[]
+                + estimate()
+                + toString()
+                {abstract} ~ computeX()
+                {abstract} ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman {
+                ~ computeX()
+                ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman.ModelX {
+                {static} + computetX()
+                {static} + subroutine0()
+                {static} + subroutine1()
+                {static} + subroutine2()
+                {static} + subroutine3()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman.ModelY {
+                {static} + computeY()
+                {static} + subroutine0()
+                {static} + subroutine1()
+                {static} + subroutine2()
+                {static} + subroutine3()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian {
+                ~ computeX()
+                ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian.ModelX {
+                {static} + computetX()
+                {static} + subroutine0()
+                {static} + subroutine1()
+                {static} + subroutine2()
+                {static} + subroutine3()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian.ModelY {
+                {static} + computeY()
+                {static} + subroutine0()
+                {static} + subroutine1()
+                {static} + subroutine2()
+                {static} + subroutine3()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman {
+                ~ computeX()
+                ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman.ModelX {
+                {static} + computetX()
+                {static} + subroutine0()
+                {static} + subroutine1()
+                {static} + subroutine2()
+                {static} + subroutine3()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman.ModelY {
+                {static} + computeY()
+                {static} + subroutine0()
+                {static} + subroutine1()
+                {static} + subroutine2()
+                {static} + subroutine3()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw {
+                ~ computeX()
+                ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw.ModelX {
+                {static} + computetX()
+                {static} + subroutine0()
+                {static} + subroutine1()
+                {static} + subroutine2()
+                {static} + subroutine3()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw.ModelY {
+                {static} + computeY()
+                {static} + subroutine0()
+                {static} + subroutine1()
+                {static} + subroutine2()
+                {static} + subroutine3()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrKalman {
+                ~ computeX()
+                ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrMedian {
+                ~ computeX()
+                ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrMedianKalman {
+                ~ computeX()
+                ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kamshanski.blepositioning {
+    namespace model {
+      namespace methods {
+        namespace solvers {
+          namespace classificators {
+            class com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrRaw {
+                ~ computeX()
+                ~ computeY()
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator .up.|> com.kamshanski.blepositioning.model.methods.solvers.Estimator
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman -up-|> com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman +-down- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman.ModelX
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman +-down- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestKalman.ModelY
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian -up-|> com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian +-down- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian.ModelX
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian +-down- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedian.ModelY
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman -up-|> com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman +-down- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman.ModelX
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman +-down- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestMedianKalman.ModelY
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw -up-|> com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw +-down- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw.ModelX
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw +-down- com.kamshanski.blepositioning.model.methods.solvers.classificators.RandomForestRaw.ModelY
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrKalman -up-|> com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrMedian -up-|> com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrMedianKalman -up-|> com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+  com.kamshanski.blepositioning.model.methods.solvers.classificators.SvrRaw -up-|> com.kamshanski.blepositioning.model.methods.solvers.classificators.Classificator
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
